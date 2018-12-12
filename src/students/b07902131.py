@@ -384,7 +384,7 @@ def task_8(
         * You could easily find answers with Google
     '''
     import io
-    from urllib import request
+    import requests
     from PIL import Image
     import utils
     result_img = None
@@ -403,10 +403,9 @@ def task_8(
     # result.save('test.jpg')
     # and copy the file to local or use Jupyter Notebook to render.
 
-    ret = request.urlopen(img_url).read()
+    ret = requests.get(img_url).content
     result_img = Image.open(io.BytesIO(ret)) # transfer bytes into PIL object
     result_img = utils.draw_text(result_img, 'b07902131')
-    # result_img.save('t.jpg')
 
     # End of TODO
 
